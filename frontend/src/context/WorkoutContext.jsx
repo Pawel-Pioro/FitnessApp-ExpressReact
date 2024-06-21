@@ -18,7 +18,7 @@ export const workoutsReducer = (state, action) => {
             }
         case 'UPDATE_WORKOUT':
             return {
-                workouts: [...state.workouts.filter((w) =>w._id !== action.payload._id ), action.payload]
+                workouts: [...state.workouts.filter((w) =>w._id !== action.payload._id ), action.payload].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
             }
         default:
             return state
